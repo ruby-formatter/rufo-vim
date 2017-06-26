@@ -1,6 +1,6 @@
 # rufo-vim
 
-Ruby format in [vim](https://www.vim.org) via [rufo](https://github.com/asterite/rufo)
+Ruby format for [vim](https://www.vim.org) via [rufo](https://github.com/asterite/rufo)
 
 ## Installation
 
