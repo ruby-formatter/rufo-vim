@@ -4,7 +4,15 @@ Ruby format in [vim](https://www.vim.org) via [rufo](https://github.com/asterite
 
 ## Installation
 
-If you don't have a preferred installation method, I recommend
+First of all, install [rufo](https://github.com/asterite/rufo) via
+
+        $ gem install rufo
+
+Verify it works via
+
+        $ rufo -v
+
+For vim, if you don't have a preferred installation method, I recommend
 installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
 then simply copy and paste:
 
