@@ -1,4 +1,8 @@
 function! rufo#Format() abort
+  if !g:rufo_auto_formatting
+    return
+  endif
+
   let l:filename = expand('%')
 
   let l:curw = {}
