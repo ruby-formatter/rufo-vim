@@ -1,8 +1,4 @@
 function! rufo#Format() abort
-  if !g:rufo_auto_formatting
-    return
-  endif
-
   let l:filename = expand('%')
 
   let l:curw = {}
@@ -19,4 +15,10 @@ function! rufo#Format() abort
   echohl Error | echomsg l:out | echohl None
 
   call winrestview(l:curw)
+endf
+
+function! rufo#AutoFormat() abort
+  if g:rufo_auto_formatting
+    call rufo#Format()
+  endif
 endf
