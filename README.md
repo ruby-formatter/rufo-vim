@@ -19,6 +19,20 @@ then simply copy and paste:
     cd ~/.vim/bundle
     git clone git://github.com/splattael/rufo-vim.git
 
+## Options
+
+`g:rufo_auto_formatting` - enable/disable auto formatting. Default value: 0 (disabled)
+
+## Commands
+
+`:Rufo` - run formatting
+
+`:RufoOn` - enable auto formatting
+
+`:RufoOff` - disable auto formatting
+
+`:RufoToggle` - enable/disable auto formatting
+
 ## Contribution / Help wanted!
 
 I use vim for a while now but I am a newbie scripting it.
