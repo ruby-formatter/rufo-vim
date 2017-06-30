@@ -4,7 +4,9 @@ endif
 
 let g:rufo_loaded = 1
 
-let g:rufo_auto_formatting = 0
+if !exists("g:rufo_auto_formatting")
+  let g:rufo_auto_formatting = 0
+end
 
 autocmd BufWritePost *.rb silent! call rufo#Format()
 
