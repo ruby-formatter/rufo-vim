@@ -8,9 +8,19 @@ if !exists("g:rufo_auto_formatting")
   let g:rufo_auto_formatting = 0
 end
 
-autocmd BufWritePost *.rb silent! call rufo#Format()
+function! s:init_commands()
+  command! Rufo call rufo#Format()
+  command! RufoOn let g:rufo_auto_formatting = 1
+  command! RufoOff let g:rufo_auto_formatting = 0
+  command! RufoToggle let g:rufo_auto_formatting = !g:rufo_auto_formatting
+endf
 
-command! Rufo call rufo#Format()
-command! RufoOn let g:rufo_auto_formatting = 1
-command! RufoOff let g:rufo_auto_formatting = 0
-command! RufoToggle let g:rufo_auto_formatting = !g:rufo_auto_formatting
+augroup RufoAutoFormat
+  autocmd!
+  autocmd BufWritePost *.rb silent! call rufo#AutoFormat()
+augroup END
+
+augroup RufoCommands
+  autocmd!
+  autocmd FileType ruby call s:init_commands()
+augroup END
