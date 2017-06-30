@@ -18,6 +18,29 @@ then simply copy and paste:
 
     cd ~/.vim/bundle
     git clone git://github.com/splattael/rufo-vim.git
+    
+### Enable in .vimrc
+
+Auto formatting is disabled by default, so you have to enable it in your `.vimrc`/`.gvimrc`
+
+```vim
+" Enable rufo (RUby FOrmat)
+let g:rufo_auto_formatting = 1
+```
+
+## Options
+
+`g:rufo_auto_formatting` - enable/disable auto formatting. Default value: 0 (disabled)
+
+## Commands
+
+`:Rufo` - run formatting
+
+`:RufoOn` - enable auto formatting
+
+`:RufoOff` - disable auto formatting
+
+`:RufoToggle` - enable/disable auto formatting
 
 ## Contribution / Help wanted!
 
