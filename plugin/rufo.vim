@@ -9,7 +9,7 @@ if !exists("g:rufo_auto_formatting")
 end
 
 function! s:init_commands()
-  command! Rufo call rufo#Format()
+  command! -nargs=0 -range=0 Rufo call rufo#Format(<line1>, <line2>, <count>)
   command! RufoOn let g:rufo_auto_formatting = 1
   command! RufoOff let g:rufo_auto_formatting = 0
   command! RufoToggle let g:rufo_auto_formatting = !g:rufo_auto_formatting

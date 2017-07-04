@@ -18,7 +18,7 @@ then simply copy and paste:
 
     cd ~/.vim/bundle
     git clone git://github.com/splattael/rufo-vim.git
-    
+
 ### Enable in .vimrc
 
 Auto formatting is disabled by default, so you have to enable it in your `.vimrc`/`.gvimrc`
@@ -28,13 +28,17 @@ Auto formatting is disabled by default, so you have to enable it in your `.vimrc
 let g:rufo_auto_formatting = 1
 ```
 
+## Partial formatting
+
+For formatting some part of the code select lines with Shift+V and call `:Rufo` command
+
 ## Options
 
 `g:rufo_auto_formatting` - enable/disable auto formatting. Default value: 0 (disabled)
 
 ## Commands
 
-`:Rufo` - run formatting
+`:Rufo` - run formatting. In Normal mode - format whole file, in Visual mode - format selected part
 
 `:RufoOn` - enable auto formatting
 
