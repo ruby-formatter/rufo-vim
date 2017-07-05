@@ -46,9 +46,12 @@ For formatting some part of the code select lines with Shift+V and call `:Rufo` 
 
 `:RufoToggle` - enable/disable auto formatting
 
-## Contribution / Help wanted!
+## [Contributors](https://github.com/splattael/rufo-vim/graphs/contributors)
 
-I use vim for a while now but I am a newbie scripting it.
+* Peter Leitzen (https://github.com/splattael)
+* Alexander Skachko (https://github.com/lucerion)
+
+Thank you :green_heart:
 
 **Help is very welcome!**
 
