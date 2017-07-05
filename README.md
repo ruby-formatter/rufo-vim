@@ -36,6 +36,9 @@ For formatting some part of the code select lines with Shift+V and call `:Rufo` 
 
 `g:rufo_auto_formatting` - enable/disable auto formatting. Default value: 0 (disabled)
 
+`g:rufo_errors_buffer_position` - errors buffer position. Possible values: 'top', 'bottom', 'left', 'right'.
+Default: 'bottom'
+
 ## Commands
 
 `:Rufo` - run formatting. In Normal mode - format whole file, in Visual mode - format selected part
@@ -55,4 +58,3 @@ I use vim for a while now but I am a newbie scripting it.
 ## TODO
 
 - [ ] Format before saving using `BufWritePre` (see [rust.vim](https://github.com/rust-lang/rust.vim/))
-- [ ] Show actual error messages
