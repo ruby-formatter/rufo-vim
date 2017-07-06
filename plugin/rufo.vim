@@ -4,9 +4,13 @@ endif
 
 let g:rufo_loaded = 1
 
-if !exists("g:rufo_auto_formatting")
+if !exists('g:rufo_auto_formatting')
   let g:rufo_auto_formatting = 0
 end
+
+if !exists('g:rufo_errors_buffer_position')
+  let g:rufo_errors_buffer_position = 'bottom'
+endif
 
 function! s:init_commands()
   command! -nargs=0 -range=0 Rufo call rufo#Format(<line1>, <line2>, <count>)
