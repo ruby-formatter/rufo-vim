@@ -26,6 +26,9 @@ Auto formatting is disabled by default, so you have to enable it in your `.vimrc
 ```vim
 " Enable rufo (RUby FOrmat)
 let g:rufo_auto_formatting = 1
+
+" Enable format before saving
+let g:rufo_format_before_saving = 1
 ```
 
 ## Partial formatting
@@ -60,4 +63,4 @@ Thank you :green_heart:
 
 ## TODO
 
-- [ ] Format before saving using `BufWritePre` (see [rust.vim](https://github.com/rust-lang/rust.vim/))
+- [x] Format before saving using `BufWritePre` (see [rust.vim](https://github.com/rust-lang/rust.vim/))
