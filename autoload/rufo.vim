@@ -15,6 +15,12 @@ function! rufo#Format(start_line, end_line, count) abort
   end
 endf
 
+function! rufo#FormatBeforeSave() abort
+  if g:rufo_format_before_saving
+    call s:format_file()
+  endif
+endf
+
 function! rufo#AutoFormat() abort
   if g:rufo_auto_formatting
     call s:format_file()

@@ -4,6 +4,10 @@ endif
 
 let g:rufo_loaded = 1
 
+if !exists('g:rufo_format_before_saving')
+  let g:rufo_format_before_saving = 0
+end
+
 if !exists('g:rufo_auto_formatting')
   let g:rufo_auto_formatting = 0
 end
@@ -18,6 +22,11 @@ function! s:init_commands()
   command! RufoOff let g:rufo_auto_formatting = 0
   command! RufoToggle let g:rufo_auto_formatting = !g:rufo_auto_formatting
 endf
+
+augroup RufoFormatBeforeSave
+  autocmd!
+  autocmd BufWritePre *.rb silent! call rufo#FormatBeforeSave()
+augroup END
 
 augroup RufoAutoFormat
   autocmd!
