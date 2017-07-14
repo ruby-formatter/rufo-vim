@@ -17,7 +17,7 @@ installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
 then simply copy and paste:
 
     cd ~/.vim/bundle
-    git clone git://github.com/splattael/rufo-vim.git
+    git clone git://github.com/ruby-formatter/rufo-vim.git
 
 ### Enable in .vimrc
 
@@ -52,7 +52,7 @@ Default: 'bottom'
 
 `:RufoToggle` - enable/disable auto formatting
 
-## [Contributors](https://github.com/splattael/rufo-vim/graphs/contributors)
+## [Contributors](https://github.com/ruby-formatter/rufo-vim/graphs/contributors)
 
 * Peter Leitzen (https://github.com/splattael)
 * Alexander Skachko (https://github.com/lucerion)
