@@ -4,7 +4,7 @@ Ruby format for [vim](https://www.vim.org) via [rufo](https://github.com/ruby-fo
 
 ## Installation
 
-First of all, install [rufo](https://github.com/asterite/rufo) via
+First of all, install [rufo](https://github.com/ruby-formatter/rufo) via
 
         $ gem install rufo
 
@@ -60,7 +60,3 @@ Default: 'bottom'
 Thank you :green_heart:
 
 **Help is very welcome!**
-
-## TODO
-
-- [x] Format before saving using `BufWritePre` (see [rust.vim](https://github.com/rust-lang/rust.vim/))
