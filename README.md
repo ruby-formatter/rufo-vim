@@ -1,6 +1,8 @@
 # rufo-vim
 
-Ruby format for [vim](https://www.vim.org) via [rufo](https://github.com/asterite/rufo)
+Ruby format for [vim](https://www.vim.org) via [rufo](https://rubygems.org/gems/rufo).
+
+**Note**: The original [repo on GitHub](https://github.com/asterite/rufo) 404s since 2017-07-14.
 
 ## Installation
 
