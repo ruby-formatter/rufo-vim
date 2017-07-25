@@ -26,10 +26,9 @@ Auto formatting is disabled by default, so you have to enable it in your `.vimrc
 ```vim
 " Enable rufo (RUby FOrmat)
 let g:rufo_auto_formatting = 1
-
-" Enable format before saving
-let g:rufo_format_before_saving = 1
 ```
+
+Next time when you save the file code will be formatted
 
 ## Partial formatting
 

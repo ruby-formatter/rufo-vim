@@ -15,12 +15,6 @@ function! rufo#Format(start_line, end_line, count) abort
   end
 endf
 
-function! rufo#FormatBeforeSave() abort
-  if g:rufo_format_before_saving
-    call s:format_file()
-  endif
-endf
-
 function! rufo#AutoFormat() abort
   if g:rufo_auto_formatting
     call s:format_file()
@@ -28,61 +22,55 @@ function! rufo#AutoFormat() abort
 endf
 
 function! s:format_file() abort
-  let l:filename = expand('%')
+  let l:current_view = winsaveview()
 
-  let l:curw = {}
-  try
-    mkview!
-  catch
-    let l:curw = winsaveview()
-  endtry
-
-  let l:out = system('rufo ' . l:filename)
-  try | silent undojoin | catch | endtry
-  silent edit!
-  let &syntax = &syntax
-
-  if s:formatting_failed(l:out)
+  let [l:start_line, l:end_line] = [1, '$']
+  let [l:formatting_failed, l:out] = s:format(l:start_line, l:end_line)
+  if l:formatting_failed
     call s:show_error(l:out)
+  else
+    call s:replace(l:start_line, l:end_line, l:out)
+    silent exec l:end_line . 'delete _'
   endif
 
-  call winrestview(l:curw)
+  call winrestview(l:current_view)
 endf
 
 function! s:format_selection(start_line, end_line) abort
-  let l:selection = getline(a:start_line, a:end_line)
-  let l:tempfile = tempname()
   let l:last_line_is_empty_line_between_code_blocks = getline(a:end_line) == '' && getline(a:end_line + 1) != ''
 
-  call writefile(l:selection, l:tempfile)
-  let l:out = system('rufo ' . l:tempfile)
-
-  if s:formatting_failed(l:out)
+  let [l:formatting_failed, l:out] = s:format(a:start_line, a:end_line)
+  if l:formatting_failed
     call s:show_error(l:out)
-    return
+  else
+    call s:replace(a:start_line, a:end_line, l:out)
+
+    " restore indentation
+    silent exec 'normal! ' . a:start_line . 'GV' . a:end_line . 'G='
+
+    " keep empty line between code blocks
+    if l:last_line_is_empty_line_between_code_blocks
+      call append(a:end_line - 1, '')
+    endif
+  endif
+endf
+
+function! s:format(start_line, end_line) abort
+  let l:buffer_number = bufnr(s:default_buffer_name)
+  if buffer_exists(l:buffer_number)
+    silent exec l:buffer_number . 'bdelete'
   endif
 
-  let l:result = readfile(l:tempfile)
-  silent exec a:start_line . ',' . a:end_line . ' delete'
-  call append(a:start_line - 1, l:result)
-  call delete(l:tempfile)
-
-  " restore indentation
-  silent exec 'normal! ' . a:start_line . 'GV' . a:end_line . 'G='
-
-  " keep empty line between code blocks
-  if l:last_line_is_empty_line_between_code_blocks
-    call append(a:end_line - 1, '')
-  endif
+  let l:selection = join(getline(a:start_line, a:end_line), '\n')
+  let l:out = systemlist('echo ' . shellescape(l:selection) . '| rufo')
+  return [s:formatting_failed(l:out), l:out]
 endf
 
 function! s:formatting_failed(message) abort
-  let l:message = split(a:message, '\n')
-  return empty(l:message) ? 0 : l:message[0] !~ 'Format'
+  return a:message[0] =~ 'Error'
 endf
 
 function! s:show_error(message) abort
-  let l:message = split(a:message, '\n')
   let l:buffer_position = get(s:buffer_positions, g:rufo_errors_buffer_position, s:buffer_positions.bottom)
   let l:buffer_number = bufnr(s:default_buffer_name)
 
@@ -99,13 +87,17 @@ function! s:show_error(message) abort
     endif
 
     setlocal modifiable
-    silent exec '0,' . line('$') . 'delete'
-    call append(0, l:message)
+    call s:replace(1, line('$'), a:message)
   else
     silent exec l:buffer_position . ' new ' . s:default_buffer_name
-    call append(0, l:message)
+    call append(0, a:message)
     setlocal buftype=nofile bufhidden=hide nobuflisted noswapfile
   endif
-  silent exec line('$') . 'delete'
+  silent exec line('$') . 'delete _'
   setlocal nomodifiable
 endf
+
+func! s:replace(start_line, end_line, text) abort
+  silent exec a:start_line . ',' . a:end_line . 'delete _'
+  call append(a:start_line - 1, a:text)
+endfunc
