@@ -71,6 +71,11 @@ function! s:formatting_failed(message) abort
 endf
 
 function! s:show_error(message) abort
+  " Don't open buffer if the errors should be silent
+  if g:rufo_silence_errors == 1
+    return
+  endif
+
   let l:buffer_position = get(s:buffer_positions, g:rufo_errors_buffer_position, s:buffer_positions.bottom)
   let l:buffer_number = bufnr(s:default_buffer_name)
 

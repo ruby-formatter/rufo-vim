@@ -12,6 +12,10 @@ if !exists('g:rufo_errors_buffer_position')
   let g:rufo_errors_buffer_position = 'bottom'
 endif
 
+if !exists('g:rufo_silence_errors')
+  let g:rufo_silence_errors = 0
+endif
+
 function! s:init_commands()
   command! -nargs=0 -range=0 Rufo call rufo#Format(<line1>, <line2>, <count>)
   command! RufoOn let g:rufo_auto_formatting = 1

@@ -41,6 +41,8 @@ For formatting some part of the code select lines with Shift+V and call `:Rufo` 
 `g:rufo_errors_buffer_position` - errors buffer position. Possible values: 'top', 'bottom', 'left', 'right'.
 Default: 'bottom'
 
+`g:rufo_silence_errors` - Errors will not be shown if set to `1`. Possible values: 0 or 1. Default: 0
+
 ## Commands
 
 `:Rufo` - run formatting. In Normal mode - format whole file, in Visual mode - format selected part
