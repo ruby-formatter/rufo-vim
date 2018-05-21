@@ -99,7 +99,7 @@ function! s:show_error(message) abort
     setlocal buftype=nofile bufhidden=hide nobuflisted noswapfile
   endif
   silent exec line('$') . 'delete _'
-  setlocal nomodifiable
+  setlocal nomodifiable nomodified
 endf
 
 func! s:replace(start_line, end_line, text) abort
