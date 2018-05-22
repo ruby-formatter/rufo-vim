@@ -63,11 +63,11 @@ function! s:format(start_line, end_line) abort
 
   let l:selection = join(map(getline(a:start_line, a:end_line), "escape(v:val, '\\')"), '\n')
   let l:out = systemlist('echo ' . shellescape(l:selection) . '| rufo')
-  return [s:formatting_failed(v:shell_error, l:out), l:out]
+  return [s:formatting_failed(v:shell_error), l:out]
 endf
 
-function! s:formatting_failed(status, message) abort
-  return (a:status && a:status != 3) || a:message[0] =~# 'Error'
+function! s:formatting_failed(status) abort
+  return a:status && a:status != 3
 endf
 
 function! s:show_error(message) abort
