@@ -61,7 +61,7 @@ function! s:format(start_line, end_line) abort
     silent exec l:buffer_number . 'bdelete'
   endif
 
-  let l:selection = join(map(getline(a:start_line, a:end_line), "escape(v:val, '\\')"), '\n')
+  let l:selection = join(getline(a:start_line, a:end_line), "\n")
   let l:out = systemlist('echo ' . shellescape(l:selection) . '| rufo')
   return [s:formatting_failed(v:shell_error), l:out]
 endf
