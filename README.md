@@ -54,12 +54,11 @@ Default: 'bottom'
 `:RufoToggle` - enable/disable auto formatting
 
 ## [Contributors](https://github.com/ruby-formatter/rufo-vim/graphs/contributors)
-
-* Kiyoshi Murata (https://github.com/13k)
-* Peter Leitzen (https://github.com/splattael)
-* Alexander Skachko (https://github.com/lucerion)
 * Frank (https://github.com/thenoseman)
+* Peter Leitzen (https://github.com/splattael)
 * tos-miyake (https://github.com/tos-miyake)
+* Kiyoshi Murata (https://github.com/13k)
+* Alexander Skachko (https://github.com/lucerion)
 
 Thank you :green_heart:
 
