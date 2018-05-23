@@ -58,6 +58,7 @@ Default: 'bottom'
 * Kiyoshi Murata (https://github.com/13k)
 * Peter Leitzen (https://github.com/splattael)
 * Alexander Skachko (https://github.com/lucerion)
+* Frank (https://github.com/thenoseman)
 
 Thank you :green_heart:
 
