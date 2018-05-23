@@ -59,6 +59,7 @@ Default: 'bottom'
 * Peter Leitzen (https://github.com/splattael)
 * Alexander Skachko (https://github.com/lucerion)
 * Frank (https://github.com/thenoseman)
+* tos-miyake (https://github.com/tos-miyake)
 
 Thank you :green_heart:
 
