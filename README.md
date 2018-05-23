@@ -55,6 +55,7 @@ Default: 'bottom'
 
 ## [Contributors](https://github.com/ruby-formatter/rufo-vim/graphs/contributors)
 
+* Kiyoshi Murata (https://github.com/13k)
 * Peter Leitzen (https://github.com/splattael)
 * Alexander Skachko (https://github.com/lucerion)
 
