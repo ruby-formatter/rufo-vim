@@ -58,7 +58,7 @@ endf
 function! s:format(start_line, end_line) abort
   let l:buffer_number = bufnr(s:default_buffer_name)
   if buffer_exists(l:buffer_number)
-    silent exec l:buffer_number . 'bdelete'
+    silent exec 'bwipeout ' . l:buffer_number
   endif
 
   let l:selection = join(getline(a:start_line, a:end_line), "\n")
