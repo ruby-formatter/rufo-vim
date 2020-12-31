@@ -62,7 +62,7 @@ function! s:format(start_line, end_line) abort
   endif
 
   let l:selection = join(getline(a:start_line, a:end_line), "\n")
-  let l:out = systemlist('echo ' . shellescape(l:selection) . '| rufo')
+  let l:out = systemlist('printf %s ' . shellescape(l:selection) . '| rufo')
   return [s:formatting_failed(v:shell_error), l:out]
 endf
 
