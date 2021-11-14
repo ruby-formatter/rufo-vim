@@ -55,7 +55,7 @@ Default: 'bottom'
 
 ## Troubleshooting
 
-If the plugin does not seem to be loading, make sure you are not using `vim.tiny`.
+If the plugin does not seem to be loading, make sure you are not using `vim.tiny` :
 
 ```
 $ ls -l /etc/alternatives/vi
