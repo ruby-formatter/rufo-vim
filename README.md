@@ -53,6 +53,18 @@ Default: 'bottom'
 
 `:RufoToggle` - enable/disable auto formatting
 
+## Troubleshooting
+
+If the plugin does not seem to be loading, make sure you are not using `vim.tiny` :
+
+```
+$ ls -l /etc/alternatives/vi
+lrwxrwxrwx 1 root root 17 jui 22 15:46 /etc/alternatives/vi -> /usr/bin/vim.tiny
+```
+
+On Linux Mint 20.2, installing the `vim-runtime` package will fix this.
+
+
 ## [Contributors](https://github.com/ruby-formatter/rufo-vim/graphs/contributors)
 * Frank (https://github.com/thenoseman)
 * Peter Leitzen (https://github.com/splattael)
